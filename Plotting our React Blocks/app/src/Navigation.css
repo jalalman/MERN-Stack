@@ -1,0 +1,8 @@
+nav{
+    width: 20%;
+    height: 50vh;
+    background-color: #6fa8dc;
+    border: 2px solid black;
+    display: inline-block;
+    vertical-align: top;
+}

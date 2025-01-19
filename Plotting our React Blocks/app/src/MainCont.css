@@ -1,0 +1,10 @@
+.main-cont{
+    width: 77%;
+    height: 70vh;
+    background-color: #e06666;
+    border: 2px solid black;
+    display: inline-block;
+    margin-left: 36px;
+    padding: 10px;
+
+}

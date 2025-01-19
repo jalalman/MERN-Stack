@@ -1,0 +1,10 @@
+.sub-cont{
+
+    width: 30%;
+    height: 45vh;
+    background-color: #ffd966;
+    border: 2px solid black;
+    margin: 10px 10px;
+    display: inline-block;
+
+}

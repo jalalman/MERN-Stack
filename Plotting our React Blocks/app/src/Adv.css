@@ -1,0 +1,9 @@
+
+.adv{
+    display: flex;
+    margin: 0 10px;
+    width: 94%;
+    background-color: #b4a7d6 ;
+    height: 15vh;
+    border: 2px solid black;
+}
