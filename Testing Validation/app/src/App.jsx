@@ -1,24 +1,13 @@
-import Card from "./Card.jsx";
+import './component/FormReg.jsx'
+import FromReg from './component/FormReg.jsx'
 
 function App() {
+  
+
   return (
     <>
-      <Card /> 
-      <Card /> 
-      <Card /> 
-      <Card /> 
-      <Card /> 
-      <Card /> 
-      <Card />
-      <Card /> 
-      <Card /> 
-      <Card /> 
-      <Card /> 
-      <Card /> 
-      <Card /> 
-      <Card />
+      <FromReg />
     </>
-
   )
 }
 
