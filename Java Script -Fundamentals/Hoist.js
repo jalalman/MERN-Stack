@@ -3,6 +3,7 @@
 //1
 console.log(hello);
 var hello = 'world';
+
 //undefined
 
 //2

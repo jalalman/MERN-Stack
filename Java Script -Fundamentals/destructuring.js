@@ -15,8 +15,8 @@ const employee = {
     age: 47,
     company: 'Tesla'
 }
-const { name: otherName } = employee;
-console.log(name);
+const { name: otherName ,age:newAge,company,newCompany} = employee;
+console.log(newAge);
 console.log(otherName);
 //error 
 //Elon

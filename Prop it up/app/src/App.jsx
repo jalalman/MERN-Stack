@@ -1,7 +1,6 @@
 import Com from './Com.jsx'
 function App() {
 
-
   return (
     <>
       <Com firstname="jalal" lastname="hemmo" age="33" hairColor="brown"/>
