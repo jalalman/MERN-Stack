@@ -5,7 +5,7 @@ function Pokemon() {
     const [pokemonList, setPokemonList] = useState([]);
 
     const fetchPokemon = () => {
-        axios.get('https://pokeapi.co/api/v2/pokemon?limit=1300')
+        axios.get('https://pokeapi.co/api/v2/pokemon?limit=1000')
             .then(response => {
                 const pokemonWithImages = response.data.results.map((pokemon, index) => ({
                     name: pokemon.name,
