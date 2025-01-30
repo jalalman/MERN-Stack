@@ -1,0 +1,97 @@
+################# Back End Set up ##################
+
+// make a new folder named "myNewProject" cd into it:
+    mkdir myNewProject
+    cd myNewProject
+
+// create a folder named "server" and navigate into it using the command cd.
+// This folder will house all our backend code!
+    mkdir server
+    cd server
+
+// create a new project via:
+npm init -y
+
+// install dependencies:
+    npm install express mongoose dotenv cors
+
+// create a new file named server.js
+// create an environment file and a .gitignore
+    touch server.js
+    touch .env
+    touch .gitignore
+
+
+// add the following code into server.js:
+    require('dotenv').config();
+    require('./config/mongoose.config');
+
+    const express = require('express');
+    const app = express();
+    const port = process.env.PORT;
+    const cors = require('cors');
+
+    // Middleware
+    app.use(cors());
+    app.use(express.json(), express.urlencoded({ extended: true }));
+
+    // Routes
+    const authorRoutes = require("./routes/author.routes");
+    authorRoutes(app);
+
+    // Start server
+    app.listen(port, () => {
+        console.log(`Listening at Port ${port}`);
+    });
+
+// .gitignore file, include the following:
+    /node_modules
+    .env
+
+// .env file, include the following:
+    PORT=8000
+    DB=my_full_stack_MERN
+    # mongo atlas connection
+    ATLAS_USERNAME=zughayyar
+    ATLAS_PASSWORD=qwer1234@anas
+
+// create four more folders: "config", "controllers", "models", and "routes":
+    mkdir config controllers models routes
+
+// create "mongoose.config.js"
+    require('dotenv').config(); // Load environment variables from .env file
+    const mongoose = require('mongoose');
+
+    // Fetch the values from the environment variables
+    const dbName = process.env.DB;
+    const username = process.env.ATLAS_USERNAME;
+    const pw = encodeURIComponent(process.env.ATLAS_PASSWORD); // Ensure password is URL encoded
+
+    // Create the MongoDB connection string
+    const uri = `mongodb+srv://${username}:${pw}@mycluster.ypx3l.mongodb.net/${dbName}?retryWrites=true&w=majority&appName=MyCluster`;
+
+    // Connect to MongoDB using Mongoose
+    mongoose.connect(uri)
+        .then(() => console.log("Established a connection to the database"))
+        .catch(err => console.log("Something went wrong when connecting to the database", err));
+
+
+
+################# Front End Set up ##################
+// Ensure you're at the same folder level as your "server.js" file.
+// Create React Project
+    npm create vite@latest
+    cd client
+    npm install
+    npm install axios
+    npm install react-router-dom
+    npm run dev
+
+
+############# Socket.io ##############
+    - for server:
+    npm install socket.io
+
+    - for client:
+    npm install socket.io-client
+
