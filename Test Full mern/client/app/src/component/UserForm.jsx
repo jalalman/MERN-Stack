@@ -1,35 +1,40 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Navigate, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './UserForm.css'; // Import custom CSS
 
 function UserForm() {
   const [name, setName] = useState("");
+  const [nameError, setNameError] = useState("");
   const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
   const [password, setPassword] = useState("");
-  const [redirect, setRedirect] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [passwordError, setPasswordError] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const newUser = { name, email, password };
     axios.post('http://localhost:8000/api/users/new', newUser)
       .then(res => {
-        console.log(res);
-        setRedirect(true);
+        navigate("/");
       })
       .catch(err => {
-        if (err.response && err.response.data.errors) {
-          setErrors(err.response.data.errors);
-        } else {
-          console.error(err);
+        const errorResponse = err.response?.data?.errors;
+        console.log(errorResponse);
+        if (errorResponse) {
+          Object.keys(errorResponse).forEach(key => {
+            console.log(key);
+            if (key === "name") {
+              setNameError(errorResponse[key].message);
+            } else if (key === "email") {
+              setEmailError(errorResponse[key].message);
+            } else if (key === "password") {
+              setPasswordError(errorResponse[key].message);
+            }
+          });
         }
       });
-    console.log("Welcome", newUser);
-  }
-
-  if (redirect) {
-    return <Navigate to="/" />;
   }
 
   return (
@@ -45,7 +50,7 @@ function UserForm() {
             value={name}
             onChange={e => setName(e.target.value)}
           />
-          {errors.name && <div className="text-danger">{errors.name.message}</div>}
+          {nameError && <div className="text-danger">{nameError}</div>}
         </div>
         <div className="mb-3">
           <label className="form-label">Email:</label>
@@ -56,7 +61,7 @@ function UserForm() {
             value={email}
             onChange={e => setEmail(e.target.value)}
           />
-          {errors.email && <div className="text-danger">{errors.email.message}</div>}
+          {emailError && <div className="text-danger">{emailError}</div>}
         </div>
         <div className="mb-3">
           <label className="form-label">Password:</label>
@@ -67,7 +72,7 @@ function UserForm() {
             value={password}
             onChange={e => setPassword(e.target.value)}
           />
-          {errors.password && <div className="text-danger">{errors.password.message}</div>}
+          {passwordError && <div className="text-danger">{passwordError}</div>}
         </div>
         <div className="d-flex justify-content-between">
           <button type="submit" className="btn btn-primary">Submit</button>
