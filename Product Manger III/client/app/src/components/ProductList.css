@@ -1,0 +1,160 @@
+.product-list-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-list-title {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .product-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .product-item {
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+  
+  .product-item:hover {
+    transform: scale(1.02);
+  }
+  
+  .product-title {
+    margin: 0;
+    font-size: 1.5em;
+    color: #007bff;
+  }
+  
+  .product-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .product-link:hover {
+    text-decoration: underline;
+  }
+  
+  .product-price {
+    font-size: 1.2em;
+    color: #28a745;
+  }
+  
+  .product-description {
+    font-size: 1em;
+    color: #666;
+  }
+
+  .delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .delete-button i {
+    margin-right: 5px;
+  }
+  
+  .delete-button:hover {
+    background-color: darkred;
+  }
+
+  .product-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.edit-button i {
+  margin-right: 5px;
+}
+
+.edit-button:hover {
+  background-color: #0056b3;
+}
+
+.delete-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.delete-button i {
+  margin-right: 5px;
+}
+
+.delete-button:hover {
+  background-color: darkred;
+}
+
+.product-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.edit-button i {
+  margin-right: 5px;
+}
+
+.edit-button:hover {
+  background-color: #0056b3;
+}
+
+.delete-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.delete-button i {
+  margin-right: 5px;
+}
+
+.delete-button:hover {
+  background-color: darkred;
+}
